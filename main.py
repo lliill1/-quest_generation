@@ -7,15 +7,16 @@ from langchain_core.output_parsers import StrOutputParser
 from config import GROQ_API_KEY
 
 class QuestGenerator:
-    def __init__(self):
+    def __init__(self, settings):
+        self.settings = settings
         self.scenes = []
         self.current_id = 1
         self.branch_start_id = None
         self.branch_depth = 0
         
-        # Инициализация модели ChatGroq с ключом из config.py
+        # Инициализация модели ChatGroq с переданными настройками
         self.llm = ChatGroq(
-            api_key=GROQ_API_KEY,
+            api_key=self.settings.GROQ_API_KEY,
             model_name="llama3-70b-8192",
             temperature=0.7,
             max_tokens=100

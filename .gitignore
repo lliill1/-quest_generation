@@ -1,0 +1,37 @@
+# Игнорировать системные файлы
+.DS_Store
+Thumbs.db
+
+# Игнорировать Python кэш и виртуальное окружение
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+
+# Игнорировать файлы IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Игнорировать сгенерированные файлы
+quest.json
+user_input.txt
+uploads/
+
+# Игнорировать конфигурационные файлы с секретами
+config.py
+.env
+
+# Игнорировать тестовые данные
+/test_data/
+*.log
+
+# Игнорировать временные файлы
+*.tmp
+*.temp
+
+# Игнорировать кэш Python packages
+.python-version
+pip-selfcheck.json.env
+config.py
