@@ -24,12 +24,9 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
 
-class Settings:
-    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-
-# Инициализация генератора
-settings = Settings()
-generator = QuestGenerator(settings)
+# Инициализация генератора с ключом из .env
+from main import QuestGenerator
+generator = QuestGenerator(api_key=os.getenv("GROQ_API_KEY"))
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):

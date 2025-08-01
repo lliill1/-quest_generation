@@ -4,20 +4,19 @@ from typing import Dict, List
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from config import GROQ_API_KEY
 
 class QuestGenerator:
-    def __init__(self, settings):
-        self.settings = settings
+    def __init__(self, api_key: str):
+        self.api_key = api_key
         self.scenes = []
         self.current_id = 1
         self.branch_start_id = None
         self.branch_depth = 0
         
-        # Инициализация модели ChatGroq с переданными настройками
+        # Инициализация модели
         self.llm = ChatGroq(
-            api_key=self.settings.GROQ_API_KEY,
-            model_name="llama3-70b-8192",
+            api_key=self.api_key,
+            model_name="mixtral-8x7b-32768",
             temperature=0.7,
             max_tokens=100
         )
