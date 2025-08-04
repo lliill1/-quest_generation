@@ -16,7 +16,7 @@ class QuestGenerator:
         # Инициализация модели
         self.llm = ChatGroq(
             api_key=self.api_key,
-            model_name="mixtral-8x7b-32768",
+            model_name="llama3-8b-8192",
             temperature=0.7,
             max_tokens=100
         )
